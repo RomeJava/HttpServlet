@@ -1,0 +1,26 @@
+import  org.springframework.jdbc.core.RowMapper;
+import  org.springframework.jdbc.core.support.JdbcDaoSupport;
+
+import HttpServlet.Hold
+
+
+public class JdbcTemplate{
+    public class oneRowMapper extends JdbcDaoSupport{
+    
+        public Object mapRow(ResulteSet rs,int rowNumber) throws SQLException{
+        
+        Hold hold = new Hold();
+        
+        hold.setDif(rs.getInt("t_hold_did"));
+        hold.setOpprice(rs.getInt("t_hold_opprice"));
+        
+        return hold;
+        }
+        }
+       public List<Hold> getHold(int id){
+       String sql ="select * from t_hold where id=?";
+       
+       return getJdbcTemplate().queryForObject(sql,new Object[]{id},new HoldRowMapper};
+       }
+       
+       }
