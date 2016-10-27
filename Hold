@@ -1,0 +1,28 @@
+public class Hold{
+    private int id;
+    
+    private int did;
+    
+    private int opprice;
+    
+    public int getId(){
+    return id;}
+    
+    public void setId(int id){
+    this.id = id;
+    }
+    
+    public int getDid(){
+    return did;}
+    
+    public void setDid(int did){
+    this.did = did;
+    }
+    
+    public int getOpprice(){
+    return opprice;}
+    
+    public void setOpprice(){
+    this.opprice = opprice;
+    }
+}
