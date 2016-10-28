@@ -1,0 +1,39 @@
+publc class clientpost(){
+   //input&output are both XML as String
+   
+   public  static  String xml(){
+       
+	   StringBuilder sb = new StringBuilder();
+	   //write your own XML line by line 
+	   sb.append("<?xml version='1.0' encoding="UTF-8");
+	   sb.append("")
+	   
+	   return sb.toString();
+   }
+  public static void send(String url){
+    HttpClient client = new HttpClient();
+	PostMethod post = new PostMethod(url);
+	post.setRequestBody(xml());
+	//if toString doesn`t work try use the code blow
+	System.out.println(post.getResponseBodyAsStream().toString());
+	/*
+	try{
+	InputStream ins =post.getResponseBodyAsStream();
+	BufferedReader br = new BufferedReader(new InputStreamReader(ins,"UTF-8"));
+	StringBuilder sb =new StringBuilder();
+	String line =null;
+	while((line=br.readLine()!=null){
+	System.out.println(line);
+	}
+  }catch(IOException e1){
+  System.out.println("FAILTED TO READ RETURN")}
+  */
+  post.releaseConnection();
+
+}
+
+   public static  void main(String[] args){
+   //use your owen url
+   String url="http://localhost:8080/openapi/api";
+   }
+   }
